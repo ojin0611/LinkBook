@@ -23,30 +23,44 @@
     var header = document.querySelector('header');
     var section = document.querySelector('section');
 
-    var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-    // var requestURL = 'C:/Users/Yang/linkbook/json/superheroes.json';
+    // 내 github에 있는 json 파일 url 받아서 업로드
+    var requestURL = 'https://raw.githubusercontent.com/ojin0611/linkbook/master/json/superheroes.json';
+
+
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
+
+    // json 타입의 파일을 받을 것입니다.
     request.responseType = 'json';
     request.send();
+
+    // waiting for the response to return from the server, then dealing with it
     request.onload = function() {
+      // superHeroes라는 jsonObj 얻는다.
       var superHeroes = request.response;
       populateHeader(superHeroes);
       showHeroes(superHeroes);
     }
 
+    //  fill the <header> with the correct data
     function populateHeader(jsonObj) {
+      // h1 사이즈로 squdName 넣기
       var myH1 = document.createElement('h1');
       myH1.textContent = jsonObj['squadName'];
       header.appendChild(myH1);
+
+
+      // p tag 안에 요소 넣기
       var myPara = document.createElement('p');
       myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
       header.appendChild(myPara);
     }
 
+    // create an information card for each hero on the team, and insert it into the <section>.
     function showHeroes(jsonObj) {
       var heroes = jsonObj['members'];
 
+      //
       for(var i = 0; i < heroes.length; i++) {
         var myArticle = document.createElement('article');
         var myH2 = document.createElement('h2');
