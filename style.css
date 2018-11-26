@@ -1,0 +1,59 @@
+/* || general styles */
+
+html {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+body {
+  width: auto;
+  margin: 20px 50px auto;
+}
+
+h1, h2 {
+  font-family: 'Faster One', cursive;
+}
+/* button styles */
+#btn_addlink{
+  background-color: #c47135;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 0.7em;
+  margin: 5px 15px;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+}
+
+/* header styles */
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  letter-spacing: -5px;
+  margin-bottom: 10px;
+}
+
+header ul {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* section styles */
+section p {
+  margin: 5px 0;
+}
+
+section ol {
+  margin-top: 0;
+}
