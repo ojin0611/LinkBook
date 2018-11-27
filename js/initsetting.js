@@ -1,3 +1,4 @@
+/******************* 처음 시작 시 링크 설정 *******************/
 function initSettingFnc(){
   var header = document.querySelector('header');
   var section = document.querySelector('section');
@@ -14,7 +15,7 @@ function initSettingFnc(){
 
   // waiting for the response to return from the server, then dealing with it
   request.onload = function() {
-    // superHeroes라는 jsonObj 얻는다.
+    // initjson에서 jsonObj 얻는다.
     var initlinkjson = request.response;
     setCategoryLink(initlinkjson,header,section);
   }
@@ -39,16 +40,24 @@ function setCategoryLink(jsonObj,header,section) {
   // Links Setting
   var title_link = document.createElement('h3');
   title_link.textContent = "Link List";
-  header.appendChild(title_link);
+  section.appendChild(title_link);
 
 
   // 요소 추가
   var links = jsonObj['links'];
   var init_links = document.createElement('ol');
+
   for(var j = 0; j < links.length; j++) {
     var listItem = document.createElement('li');
-    listItem.textContent = links[j];
-    init_links.appendChild(listItem);
+        init_links.appendChild(listItem);
+
+    var listhref = document.createElement('a');
+    // textContent는 title
+    listhref.textContent = links[j];
+    listhref.setAttribute('href',links[j]);
+    listItem.appendChild(listhref);
+
+
   }
   section.appendChild(init_links);
 }

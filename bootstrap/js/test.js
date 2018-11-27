@@ -1,0 +1,3 @@
+function testfnc(){
+alert('hi');
+}
