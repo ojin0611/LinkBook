@@ -4,7 +4,7 @@ function initSettingFnc(){
   var section = document.querySelector('section');
 
   // 내 github에 있는 json 파일 url 받아서 업로드
-  var requestURL = 'https://raw.githubusercontent.com/ojin0611/linkbook/master/init.json';
+  var requestURL = 'https://raw.githubusercontent.com/ojin0611/linkbook/master/json/init.json';
 
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
@@ -20,6 +20,7 @@ function initSettingFnc(){
     setCategoryLink(initlinkjson,header,section);
   }
 }
+
 //  fill the <header> with the correct data
 function setCategoryLink(jsonObj,header,section) {
   // Category Setting
@@ -30,6 +31,7 @@ function setCategoryLink(jsonObj,header,section) {
   // 요소 추가
   var categories = jsonObj['category'];
   var init_category = document.createElement('ul');
+
   for(var j = 0; j < categories.length; j++) {
     var listItem = document.createElement('li');
     listItem.textContent = categories[j];
@@ -41,7 +43,6 @@ function setCategoryLink(jsonObj,header,section) {
   var title_link = document.createElement('h3');
   title_link.textContent = "Link List";
   section.appendChild(title_link);
-
 
   // 요소 추가
   var links = jsonObj['links'];
@@ -56,8 +57,6 @@ function setCategoryLink(jsonObj,header,section) {
     listhref.textContent = links[j];
     listhref.setAttribute('href',links[j]);
     listItem.appendChild(listhref);
-
-
   }
   section.appendChild(init_links);
 }
