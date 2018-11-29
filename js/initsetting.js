@@ -15,6 +15,7 @@ function initSettingFnc(){
 
   // waiting for the response to return from the server, then dealing with it
   request.onload = function() {
+
     // initjson에서 jsonObj 얻는다.
     var initlinkjson = request.response;
     setCategoryLink(initlinkjson,header,section);
