@@ -1,25 +1,58 @@
-function testfnc2(){
-alert('hi');
+function testfnc(){
+  var myjson = getJsonData();
+  //  return json;
+  alert(Object.keys(myjson));
 }
 
-function testfnc(){
-  // 내 github에 있는 json 파일 url 받아서 업로드
-  var requestURL = 'https://raw.githubusercontent.com/ojin0611/linkbook/master/json/init.json';
+var url="https://raw.githubusercontent.com/ojin0611/linkbook/master/json/init.json";
 
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
+function getJsonData(){
+  $.getJSON(
+    url, function (data) {
+      data.category.push('New Category')
+      $("#reply").append(JSON.stringify(data.category));
+//      alert(Object.keys(data))
+    }
+  );
+}
 
-  // json 타입의 파일을 받을 것입니다.
-  request.responseType = 'json';
-  request.send();
+// function: Add button
 
-  // waiting for the response to return from the server, then dealing with it
-  request.onload = function() {
+function addLink(){
+  $("section").children('ol').append("<li>New link</li>");
+}
 
-    // initjson에서 jsonObj 얻는다.
-    var myjson = request.response;
-    myjson.category[myjson.category.length]='Added!';
-    alert(    myjson.category[myjson.category.length]);
-  }
+function addCategory(){
+  $("header").children('ul').append("<li>New category</li>");
+}
 
+/******************* 처음 시작 시 링크 설정 *******************/
+function initSettingFnc(){
+  // Category Setting
+  var title_category = document.createElement('h3');
+  title_category.textContent = "Category List";
+  $("header").append(title_category);
+
+  // Links Setting
+  var title_link = document.createElement('h3');
+  title_link.textContent = "Link List";
+  $("section").append(title_link);
+
+
+  $.getJSON(
+    url, function (data) {
+      for(var i=0; i<data.category.length; i++){
+        $("header").after("<li>"+data.category[i]+"</li>");
+      }
+    }
+  );
+
+  $.getJSON(
+    url, function (data) {
+      for(var i=0; i<data.links.length; i++){
+        $("section").after("<li><a href="+data.links[i]+
+        ">"+data.links[i]+"</a></li>");
+      }
+    }
+  );
 }

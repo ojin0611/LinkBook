@@ -2,4 +2,10 @@
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+  background-size: contain;
+}
+
+body:after{
+  opacity: 0.5 !important;
+
 }
