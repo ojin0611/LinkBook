@@ -1,14 +1,35 @@
 {
   "category" : [
-    "Design","Programming","SNU","Music"
+    "Design","Programming","SNU","Music","Others"
   ],
   "links" : [
-    "https://github.com/ojin0611",
-    "https://drive.google.com/drive/my-drive",
-    "https://www.presentationgo.com",
-    "https://cosmochain.io",
-    "https://ghmkt.kr",
-    "https://www.melon.com",
-    "http://my.snu.ac.kr/mysnu"
+    {
+    "title" : "My Github",
+    "link"  : "https://github.com/ojin0611"
+    },
+    {
+    "title" : "Google Drive",
+    "link"  : "https://drive.google.com/drive/my-drive"
+    },
+    {
+    "title" : "PPT Design",
+    "link"  : "https://www.presentationgo.com"
+    },
+    {
+    "title" : "Cosmochain Official",
+    "link"  : "https://cosmochain.io"
+    },
+    {
+    "title" : "Growth Hackers",
+    "link"  : "https://ghmkt.kr"
+    },
+    {
+    "title" : "Melon",
+    "link"  : "https://www.melon.com"
+    },
+    {
+    "title" : "SNU Homepage",
+    "link"  : "http://my.snu.ac.kr/mysnu"
+    }
   ]
 }
